@@ -2,10 +2,10 @@
   "name": "api_mock",
   "version": "0.0.1",
   "description": "模拟接口与数据",
-  "main": "index.js",
+  "main": "./mockServe/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./index.js --exec babel-node"
+    "dev": "nodemon DEBUG=express:* ./mockServe/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,8 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "memfs": "^3.1.2"
   }
 }
