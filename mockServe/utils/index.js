@@ -88,6 +88,23 @@ function phoneTel () {
     return tel;
 }
 
+// 随机ip地址
+function ip () {
+    return randomN(255,0) + '.' + randomN(255,0) + '.' + randomN(255,0) + '.' + randomN(255,0);
+}
+
+// 随机一串字符串
+function ids (length) {
+    return Number(Math.random().toString().substr(3,length || 6) + Date.now()).toString(36)
+}
+
+// email ，常用的也就是 163、qq、yahoo、gmail、msn 
+var emails = ['@qq.com','@163.com','@yahoo.com','gmail.com','@msn.com'],
+    emailsLen = emails.length-1;
+function email () {
+    return  ids(randomN(16,6)) + emails[randomN(emailsLen,0)]
+}
+
 // 城市选择
 
 
@@ -98,5 +115,7 @@ export {
     moneyStrToNum,
     name,
     phoneTel,
-    city
+    city,
+    ip,
+    email
 }

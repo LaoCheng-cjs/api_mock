@@ -5,7 +5,10 @@
 var express = require('express')
 var router = express.Router()
 
-router.get('/__api/index', function (req, res, next) {
+router.all('/__api/index', function (req, res, next) {
+    console.log(req.body)
+    console.log(req.query)
+    console.log(req.params)
     res.send({a:121})
     next()
 })

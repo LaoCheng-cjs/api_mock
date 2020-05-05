@@ -1,12 +1,20 @@
 import router from './router'
 import path from 'path'
 import webRouter from './webServe'
+var bodyParser = require('body-parser')
 // npm i colors
 var colors = require('colors/safe');
 
 var express = require('express')
 var app = express()
 var http = require('http')
+
+// 解析自定义的 JSON
+app.use(bodyParser.json({ type: 'application/*+json', limit: '1000mb' }))
+// 解析自定义的 Buffer
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+// 将 HTML 请求体做为字符串处理
+app.use(bodyParser.text({ type: 'text/html' }))
 
 // 挂载静态资源
 app.use(express.static(path.join(__dirname, 'views')))
