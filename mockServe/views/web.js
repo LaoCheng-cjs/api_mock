@@ -8,7 +8,3 @@ function getStyle (element, styleName) {
       return element.style[styleName]
     }
 }
-
-export {
-    getStyle
-}
