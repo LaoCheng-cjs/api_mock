@@ -3,7 +3,7 @@
     var request = function (options) {
         var option = options || {},
             formal = {
-                url: '/__api/index',
+                url: '/__api/getApiList',
                 method: 'POST',
                 dataType: 'JSON',
                 contentType: "application/json;charset=utf-8",
@@ -18,14 +18,7 @@
             console.error(['视图view 请求的url不存在：' + option.url])
             return;
         }
-        // 进行设置形参
-        // for (var str in option) {
-        //     if (str == formal) {
-
-        //     }
-        //     option[str] =
-        // }
-        // $.ajax()
+        $.ajax(option)
     }
     // 定义
     window.mockApi = {

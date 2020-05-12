@@ -1,3 +1,20 @@
-# 服务器
+# 本地服务器配置
+serves:
+  port: 8080
+request: 
+  getApiList:
+    method: post
+    params: ~
+  getAllApi:
+    method: post
+    params: ~
+  getDoc:
+    method: post
+    params: ~
+  
+  
+  
+  
+
 
 
