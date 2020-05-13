@@ -11,32 +11,57 @@
 </head>
 <body>
     <div class="nav-left">
-        <div class="nav-list active">配置</div>
+        <div class="nav-list">配置</div>
         <div class="nav-list">文档</div>
     </div>
     <div class="main">
         <div class="doc">
-            主页
+            欢迎使用
+            <div class="list-doc">
+                <div class="title">错误请求配置</div>
+                <div contenteditable class="edit"></div>
+                <div class="">确认修改</div>
+            </div>
+            <div class="list-doc">
+                <div class="title">成功请求配置</div>
+                <div contenteditable class="edit"></div>
+                <div class="">确认修改</div>
+            </div>
+            <div class="list-doc">
+                <div class="title">成功请求配置</div>
+                <div contenteditable class="edit"></div>
+                <div class="">确认修改</div>
+            </div>
         </div>
     </div>
     <script>
         $(function () {
-            // 请求
-            mockApi.getListApi(function (data) {
-                console.log(data,'');
-            })
             // 选项卡
-            let activeIndex = 0;
+            let activeIndex = 999;
             $('.nav-list').click(function () {
-                var that = $(this);
+                var that = $(this),
+                    index = that.index()
                 if(that.index() === activeIndex) {
                     return;
                 }
                 that.addClass('active').siblings().removeClass('active')
-                activeIndex = that.index()
+                if(index === 0) {
+                    // 获取配置项
+                    requetMain('getListApi',function(data) {
+                        console.log(data,'');
+                    })
+                }else if(index === 1) {
+                    // 获取所以的请求
+                    requetMain('getAllApi',function(data) {
+                        console.log(data,'');
+                    })
+                }
+                activeIndex = index
             })
-            
-            // 请求
+            // 请求内容区域
+            function requetMain (keys,cb) {
+                mockApi[keys](cb)
+            }
         })
     </script>
 </body>

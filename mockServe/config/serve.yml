@@ -11,6 +11,14 @@ request:
   getDoc:
     method: post
     params: ~
+  login:
+    method: post
+    params: 
+      userName: 'admin'
+      password: '123456'
+      token: 
+        key: ''
+        time: 30000
   
   
   
