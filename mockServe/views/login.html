@@ -4,52 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>txt</title>
-
+    <title>登录</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/vector.js"></script>
-
-    <script style="display: none;">
-        var tvt = tvt || {};
-        tvt.captureVariables = function (a) {
-            for (var b =
-                    new Date, c = {}, d = Object.keys(a || {}), e = 0, f; f = d[e]; e++)
-                if (a.hasOwnProperty(f) && "undefined" != typeof a[f]) try {
-                    var g = [];
-                    c[f] = JSON.stringify(a[f], function (l, t) {
-                        try {
-                            if ("function" !== typeof t) {
-                                if ("object" === typeof t && null !== t) {
-                                    if (t instanceof HTMLElement || t instanceof Node || -1 != g
-                                        .indexOf(t)) return;
-                                    g.push(t)
-                                }
-                                return t
-                            }
-                        } catch (A) {}
-                    })
-                } catch (l) {}
-            a = document.createEvent("CustomEvent");
-            a.initCustomEvent("TvtRetrievedVariablesEvent", !0, !0, {
-                variables: c,
-                date: b
-            });
-            window.dispatchEvent(a)
-        };
-        window.setTimeout(function () {
-            tvt.captureVariables({
-                'dataLayer.hide': (function (a) {
-                    a = a.split(".");
-                    for (var b = window, c = 0; c < a.length && (b = b[a[c]], b); c++);
-                    return b
-                })('dataLayer.hide'),
-                'gaData': window['gaData'],
-                'dataLayer': window['dataLayer']
-            })
-        }, 2000);
-    </script>
+    <script src="./js/request.js"></script>
 </head>
 
 <body >
@@ -71,11 +30,14 @@
         $(function () {
             Victor("container", "output"); //登录背景函数
             $("#entry_name").focus();
-            $(document).keydown(function (event) {
-                if (event.keyCode == 13) {
-                    $("#entry_btn").click();
-                }
-            });
+            // $(document).keydown(function (event) {
+            //     if (event.keyCode == 13) {
+            //         $("#entry_btn").click();
+            //     }
+            // });
+            $("#entry_btn").click(function () {
+
+            })
         });
     </script>
     <script type="text/javascript">

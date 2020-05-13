@@ -22,6 +22,11 @@
                     if (typeof cb === 'function') {
                         cb(res)
                     }
+                },
+                error(err) {
+                    if(err.status === 401) {
+                        location.href = '/login.html'
+                    }
                 }
             })
         },
@@ -38,6 +43,17 @@
         },
         getDoc() { // 获取操作文档及代码
 
+        },
+        login() { // 登录
+            request({
+                url: '/__api/getAllApi',
+                method: 'POST',
+                success(res) {
+                    if (typeof cb === 'function') {
+                        cb(res)
+                    }
+                }
+            })
         }
     }
 })(window)
