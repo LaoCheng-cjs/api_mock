@@ -11,7 +11,8 @@
 </head>
 <body>
     <div class="nav-left">
-        <div class="nav-list">doc</div>
+        <div class="nav-list active">配置</div>
+        <div class="nav-list">文档</div>
     </div>
     <div class="main">
         <div class="doc">
@@ -20,7 +21,22 @@
     </div>
     <script>
         $(function () {
+            // 请求
+            mockApi.getListApi(function (data) {
+                console.log(data,'');
+            })
+            // 选项卡
+            let activeIndex = 0;
+            $('.nav-list').click(function () {
+                var that = $(this);
+                if(that.index() === activeIndex) {
+                    return;
+                }
+                that.addClass('active').siblings().removeClass('active')
+                activeIndex = that.index()
+            })
             
+            // 请求
         })
     </script>
 </body>

@@ -2,7 +2,7 @@
 serves:
   port: 8080
 request: 
-  getApiList:
+  getConfig:
     method: post
     params: ~
   getAllApi:

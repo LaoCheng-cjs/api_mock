@@ -1,0 +1,20 @@
+{
+    "request": {
+        "err":{
+            "status": 500,
+            "data": [],
+            "message": "$"
+        },
+        "success": {
+            "status": 200,
+            "data": [],
+            "message": "$"
+        }
+    },
+    "requestUrlList": {
+        "demoUrl": {
+            "method": "GET",
+            "data": {}
+        }
+    }
+}
