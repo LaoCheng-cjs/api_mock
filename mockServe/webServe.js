@@ -8,12 +8,14 @@ import { read } from "node-yaml";
 var fs = require('fs')
 var path = require('path')
 var request = {},
-    token = ''
+    token = '',
+    userInfos = {}
 // 加载配置文件
 read(path.join(__dirname, './config/serve.yml'))
 .then((res) => {
     request = res.request
     token = res.token
+    userInfos = request.login.params
 //    console.log(.index.params, '');
 })
 .catch((err) => {
@@ -37,13 +39,18 @@ router.all('/__api/getAllApi', function (req, res, next) { // 添加后的接口
 })
 router.all('/__api/login', function (req, res, next) { // 添加后的接口地址
     // 验证用户名，密码
-    res.json({})
-    next()
+    if(userInfos.userName === req.params.userName &&  userInfos.password === req.params.password) {
+        // 进行生成 token后，进行保存到项目中
+
+    }else {
+        errStatus(res,501,next)
+    }
+    
 })
 
 
-function errStatus (res,status,next) {
-    res.status(401).send('从未')
+function errStatus (res,status,next,msg) {
+    res.status(status).send(msg || '')
     next()
 }
 

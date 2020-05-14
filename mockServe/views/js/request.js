@@ -44,14 +44,17 @@
         getDoc() { // 获取操作文档及代码
 
         },
-        login() { // 登录
+        login(cb) { // 登录
             request({
-                url: '/__api/getAllApi',
+                url: '/__api/login',
                 method: 'POST',
                 success(res) {
                     if (typeof cb === 'function') {
                         cb(res)
                     }
+                },
+                error() {
+                    cb()
                 }
             })
         }

@@ -35,8 +35,28 @@
             //         $("#entry_btn").click();
             //     }
             // });
+            var btnFlag = false
             $("#entry_btn").click(function () {
-
+                if(btnFlag) {
+                    return;
+                }
+                btnFlag = true
+                if(!$('#entry_name').val()) {
+                    btnFlag = false
+                    alert('账号不能为空')
+                }else if(!$('#entry_password').val()) {
+                    btnFlag = false
+                    alert('密码不能为空')
+                }else {
+                    mockApi.login(function (res) {
+                        btnFlag = false
+                        if(res) {
+                            
+                        }else {
+                            alert('登录错误，请核对用户名及密码。或者稍后有网重尝试')
+                        }
+                    })
+                }
             })
         });
     </script>
